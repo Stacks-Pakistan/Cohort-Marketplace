@@ -21,10 +21,9 @@ Clarinet.test({
         block.receipts[0].result.expectOk()
         .expectAscii("Success")
 
-        // const nftMintEvent = block.receipts[0].events[0].nft_mint_event;
-        // const [nftAssetContractPrincipal, nftAssetId] = nftMintEvent.asset_identifier.split("::");
         
-        // block.receipts[0].events.expectNonFungibleTokenMintEvent("1", deployer.address, nftAssetContractPrincipal, nftAssetId)
+        block.receipts[0].events.expectNonFungibleTokenMintEvent(types.uint(1), deployer.address, 
+        `${deployer.address}.nft`, "cohort-art")
 
     },
 });
