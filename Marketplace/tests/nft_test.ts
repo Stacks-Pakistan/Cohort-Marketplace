@@ -76,6 +76,14 @@ Clarinet.test({
         block.receipts[0].result.expectOk()
         .expectAscii("Success")
 
+        block.receipts[1].events.expectNonFungibleTokenTransferEvent(
+            types.uint(1),
+            deployer.address, 
+            wallet2.address, 
+            `${deployer.address}.nft`,
+            "cohort-art"
+        )
+
         const owner = block.receipts[2].result.expectOk().expectSome()
 
         assertEquals(owner, wallet2.address)
@@ -103,6 +111,13 @@ Clarinet.test({
         
         block.receipts[0].result.expectOk()
         .expectAscii("Success")
+
+        block.receipts[1].events.expectNonFungibleTokenBurnEvent(
+            types.uint(1),
+            deployer.address, 
+            `${deployer.address}.nft`,
+            "cohort-art"
+        )
 
         block.receipts[2].result.expectOk().expectNone()
         
