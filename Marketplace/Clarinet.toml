@@ -6,12 +6,18 @@ telemetry = true
 requirements = []
 cache_dir = "E:\\Cohort-Marketplace\\Marketplace\\.\\.requirements"
 boot_contracts = ["pox", "costs-v2", "bns"]
+[contracts.ft]
+path = "contracts/ft.clar"
+depends_on = ["sip010-ft-trait"]
+
 [contracts.nft]
 path = "contracts/nft.clar"
-depends_on = ["sip009-nft-trait"]
 
 [contracts.sip009-nft-trait]
 path = "contracts/sip009-nft-trait.clar"
+
+[contracts.sip010-ft-trait]
+path = "contracts/sip010-ft-trait.clar"
 
 [repl]
 costs_version = 2
